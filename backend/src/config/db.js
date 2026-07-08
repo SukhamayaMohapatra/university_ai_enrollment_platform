@@ -1,4 +1,8 @@
 import mongoose from "mongoose";
+import crypto from "crypto";
+if (!globalThis.crypto) {
+  globalThis.crypto = crypto;
+}
 
 export const connectDB = async () => {
   try {
