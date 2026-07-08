@@ -4,17 +4,23 @@ on:
   push:
     branches: [main]
 
+# Explicitly grant the runner permission to read the repository code
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fixes potential shallow clone 128 errors
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "24.x" # Aligns with the 2026 runner environment
 
       - name: Install Backend
         run: |
