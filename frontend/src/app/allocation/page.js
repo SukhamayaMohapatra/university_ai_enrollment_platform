@@ -31,7 +31,7 @@ export default function AllocationDashboard() {
   const fetchDashboardData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/allocation/dashboard",
+        "https://university-ai-enrollment-platform.onrender.com/api/allocation/dashboard",
       );
       setData(res.data);
     } catch (err) {
@@ -47,7 +47,9 @@ export default function AllocationDashboard() {
     setLoading(true);
     setError("");
     try {
-      await axios.post("http://localhost:5000/api/allocation/process");
+      await axios.post(
+        "https://university-ai-enrollment-platform.onrender.com/api/allocation/process",
+      );
       await fetchDashboardData();
       alert("Allocation Algorithm Executed Successfully!");
     } catch (err) {
@@ -63,7 +65,7 @@ export default function AllocationDashboard() {
     setError("");
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/allocation/ai-query",
+        "https://university-ai-enrollment-platform.onrender.com/api/allocation/ai-query",
         { question: query },
       );
       setAiResponse(res.data.answer);

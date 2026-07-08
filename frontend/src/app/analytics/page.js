@@ -41,7 +41,7 @@ export default function AnalyticsDashboard() {
   const fetchHistory = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/analytics/history",
+        "https://university-ai-enrollment-platform.onrender.com/api/analytics/history",
       );
       setHistory(res.data.history);
     } catch (err) {
@@ -62,7 +62,7 @@ export default function AnalyticsDashboard() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/analytics/upload",
+        "https://university-ai-enrollment-platform.onrender.com/api/analytics/upload",
         formData,
       );
       setCollectionName(res.data.collectionName);
@@ -85,7 +85,7 @@ export default function AnalyticsDashboard() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/analytics/query",
+        "https://university-ai-enrollment-platform.onrender.com/api/analytics/query",
         { collectionName, prompt: query },
       );
       setResults(res.data.results);
