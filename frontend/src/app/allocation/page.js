@@ -74,7 +74,7 @@ export default function AllocationDashboard() {
     setError("");
     try {
       await axios.post(
-        "https://university-ai-enrollment-platform.onrender.com/api/allocation/reset",
+        "https://university-ai-enrollment-platform.onrender.com/api/reset",
       );
       await fetchDashboardData();
       alert("All allocations have been reset successfully!");
