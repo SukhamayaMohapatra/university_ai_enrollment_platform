@@ -3,6 +3,8 @@
 ### Task 1: Allocation Engine
 * **POST** `/api/allocation/process`
     * Executes the allocation algorithm. Evaluates marks, application dates, and category reservations.
+* **`POST /api/allocation/reset`**
+    * Clears all student allocations and resets course fill counters to zero.
 * **GET** `/api/allocation/dashboard`
     * Retrieves all students and course capacities for UI rendering.
 * **POST** `/api/allocation/ai-query`
