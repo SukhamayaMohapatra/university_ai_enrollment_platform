@@ -4,6 +4,7 @@ import {
   processAllocation,
   getAllocationDashboard,
   askAllocationAI,
+  resetAllocation,
 } from "../controllers/allocation.controller.js";
 import {
   uploadDataset,
@@ -17,6 +18,8 @@ const upload = multer({ storage: multer.memoryStorage() });
 // Task 1 Routes
 router.post("/allocation/process", processAllocation);
 router.get("/allocation/dashboard", getAllocationDashboard);
+// Route to completely reset student allocations
+router.post("/reset", resetAllocation);
 router.post("/allocation/ai-query", askAllocationAI);
 
 // Task 2 Routes

@@ -12,6 +12,30 @@ export const processAllocation = async (req, res) => {
   }
 };
 
+export const resetAllocation = async (req, res) => {
+  try {
+    // Reset all students' allocated courses
+    await Student.updateMany({}, { $set: { allocatedCourse: null } });
+
+    // Reset all filled seats in courses to 0
+    await Course.updateMany(
+      {},
+      {
+        $set: {
+          "filledSeats.General": 0,
+          "filledSeats.OBC": 0,
+          "filledSeats.SC": 0,
+          "filledSeats.ST": 0,
+        },
+      },
+    );
+
+    res.json({ message: "All allocations have been reset" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const getAllocationDashboard = async (req, res) => {
   try {
     const students = await Student.find();
@@ -43,7 +67,7 @@ export const askAllocationAI = async (req, res) => {
     });
 
     const systemPrompt =
-      "You are an AI assistant for a university allocation system. Answer questions strictly based on the provided JSON context.";
+      "You are an AI assistant for a university allocation system. Answer questions strictly based on the provided JSON context. Keep answers concise.";
     const answer = await executeMistralPrompt(
       systemPrompt,
       `Context: ${context}\nQuestion: ${question}`,
