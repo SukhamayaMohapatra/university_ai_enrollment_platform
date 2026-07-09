@@ -24,3 +24,5 @@ Mistral AI (`mistral-large-latest`) is integrated via the official `@mistralai/m
 * **Solution:** I implemented a "Schema Sampling" technique. By reading the first document of the uploaded dataset and passing its JSON structure into the Mistral AI prompt, the LLM gains immediate context of the column names and data types, resulting in highly accurate query generation.
 * **Challenge:** React state updates causing issues with PDF generation in Next.js Turbopack.
 * **Solution:** Altered the `jspdf-autotable` import strategy to function as a direct functional call rather than a prototype extension, ensuring compatibility with modern bundlers.
+* **Challenge:** GitHub Actions CI/CD pipeline failing due to missing Web Crypto APIs in older Node environments.
+* **Solution:** Configured the pipeline to explicitly target Node 24 and injected a global crypto polyfill in the database configuration file to ensure universal environment compatibility.
