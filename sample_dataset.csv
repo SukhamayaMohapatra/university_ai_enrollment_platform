@@ -1,0 +1,6 @@
+TransactionID,Date,Product,Category,Revenue,UnitsSold
+T1001,2026-08-01,Laptop Pro,Electronics,1200,1
+T1002,2026-08-02,Wireless Mouse,Accessories,45,2
+T1003,2026-08-02,Desk Chair,Furniture,250,1
+T1004,2026-08-03,Laptop Pro,Electronics,2400,2
+T1005,2026-08-04,Mechanical Keyboard,Accessories,150,1
